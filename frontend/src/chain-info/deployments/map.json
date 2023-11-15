@@ -1,0 +1,44 @@
+{
+  "11155111": {
+    "Box": [
+      "0x190365B34fE031A62556538e04BeC05cD6260b6A"
+    ],
+    "GovernanceToken": [
+      "0x35A481C6CC0beb70C83A5AD9E218B4e9D43Be565"
+    ],
+    "MoralisGovernor": [
+      "0xaa1a3fb0C269D6d9B18B408C594461f44b7c9C8C"
+    ],
+    "TimeLock": [
+      "0xCAD36B33B75330479e84E5645aca5B3b59017d33"
+    ]
+  },
+  "1337": {
+    "Box": [
+      "0x088F582d103349749D853ed5453D0aE356E98521"
+    ],
+    "GovernanceToken": [
+      "0x61F240F6b282baF7F69B3399a941feFa9143ce1D"
+    ],
+    "MoralisGovernor": [
+      "0xAf994DE3cc67B5F9De0a47f79080497942969026"
+    ],
+    "TimeLock": [
+      "0x602D16283dED14ce1d70abc9A6F2CF83051e91dD"
+    ]
+  },
+  "5777": {
+    "Box": [
+      "0x261D21094C61bDDbd95D74aba971d1A4Cb626df2"
+    ],
+    "GovernanceToken": [
+      "0x9aF99ac20c2350d4C8F683c3eaC25DC04201db66"
+    ],
+    "MoralisGovernor": [
+      "0x5C61447e1470531593E50e2D37957d8ae3f7920A"
+    ],
+    "TimeLock": [
+      "0xC7f85776617C54d864fd5D070cf537C111E86e75"
+    ]
+  }
+}
