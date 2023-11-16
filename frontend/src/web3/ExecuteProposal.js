@@ -16,7 +16,7 @@ export function useExecuteProposal() {
     async function queueProposal(signer, value, proposalDescription) {
         try {
             const boxContract = contractAddresses["11155111"]["Box"][0];
-            const moralisGovernor = contractAddresses["111551115"]["MoralisGovernor"][0];
+            const moralisGovernor = contractAddresses["11155111"]["MoralisGovernor"][0];
             const boxAbi = boxContractABI.abi;
             const moralisGovernorAbi = moralisGovernorABI.abi;
             const moralisGovernorContractInstance = new ethers.Contract(moralisGovernor, moralisGovernorAbi, signer);

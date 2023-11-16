@@ -20,8 +20,9 @@ export function useGetValue() {
             const BoxContract = new ethers.Contract(contract, abi, provider);
             const value = await BoxContract.retrieve();
             setBoxValue(value.toString());
+            console.log("getCurrentValue error " + value.toString())
         } catch {
-            console.log("error")
+            console.log("getCurrentValue error")
         }
 
     }

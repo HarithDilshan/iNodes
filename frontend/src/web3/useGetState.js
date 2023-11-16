@@ -19,7 +19,7 @@ export function useGetState() {
             const abi = contractABI.abi;
             const GovernorContract = new ethers.Contract(contract, abi, provider);
             const value = await GovernorContract.state(proposalId);
-            
+            console.log(value.toString());
             return value.toString();
 
         } catch {

@@ -21,7 +21,7 @@ function App() {
   const { requestFunds } = useRequestFunds();
   const { createProposal, proposal, newValue, proposalDescription } = useCreateProposal();
 
-  console.log('test');
+  console.log('test ' + proposal);
 
   return (
     <>

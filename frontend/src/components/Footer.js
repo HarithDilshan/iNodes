@@ -7,8 +7,8 @@ function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright - MIT License - '}
-            <Link color="inherit" href="https://moralis.io/">
-                Moralis.io
+            <Link color="inherit" href="https://github.com/HarithDilshan/iNodes">
+                iNodes
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
