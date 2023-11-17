@@ -201,7 +201,6 @@ export const HomeBody = ({ boxValue, getValue, userBalance, getBalance, signer, 
                                         </Box>
                                     </div>
                                 )}
-
                             </div>
                         </div>
 

@@ -1,6 +1,17 @@
 import { Avatar, Dropdown, Navbar } from 'flowbite-react';
+import { useAuth } from '../contexts/AuthContext';
+import {Navigate} from 'react-router-dom';
 
 export const Navbar_ = () => {
+  const { logout } = useAuth();
+
+  const handleLogout = () => {
+    // Perform any additional cleanup or API calls if needed
+    logout();
+    // Redirect to the login page or any other desired location
+    return <Navigate to="/login" />;
+  };
+
   return (
     <>
     <Navbar fluid rounded>
@@ -24,7 +35,7 @@ export const Navbar_ = () => {
           <Dropdown.Item>Settings</Dropdown.Item>
           <Dropdown.Item>Earnings</Dropdown.Item>
           <Dropdown.Divider />
-          <Dropdown.Item>Sign out</Dropdown.Item>
+          <Dropdown.Item onClick={handleLogout}>Sign out</Dropdown.Item>
         </Dropdown>
         <Navbar.Toggle />
       </div>

@@ -1,15 +1,15 @@
 // Login.js
 import { useAuth } from '../contexts/AuthContext';
 import { useEffect, React, useState } from 'react';
-import { useAuthenticate } from '../web3/Authenticate';
-import { useVerification } from '../web3/Verify';
 import {Navigate} from 'react-router-dom';
 import { Card } from 'flowbite-react';
 import { Button } from 'flowbite-react';
 import axios from "axios";
+import '../styles/style.css';
+import Logo from '../img/FAF.png';
 
 const Login = () => {
-  const { account, chainId, signer, connectToMetamask, isConnected , isLoggedIn, login} = useAuth();
+  const { account, chainId, signer, connectToMetamask, login} = useAuth();
   //const { message, authenticate } = useAuthenticate();
   //const { user, verify } = useVerification();
   const [signature, setSignature] = useState();
@@ -91,20 +91,23 @@ const Login = () => {
 
 
   const handleLogin = async () => {
-    const abc = await connectToMetamask();
-    const message = await authenticate(account, chainId);
-    setMessage(message);
-    const signature = await signer.signMessage(message);
-    setSignature(signature);
-    const user = await verify({
-      message: message,
-      signature: signature,
-      network: 'sepolia',
-    });
-    setUser(user);
-
-    login(true);
-  
+    try {
+      await connectToMetamask();
+      const message = await authenticate(account, chainId);
+      setMessage(message);
+      const signature = await signer.signMessage(message);
+      setSignature(signature);
+      const user = await verify({
+        message: message,
+        signature: signature,
+        network: 'sepolia',
+      });
+      setUser(user);
+      login(); // Update to just trigger the login state change
+    } catch (error) {
+      console.error('Error during login:', error);
+      // Handle error as needed
+    }
   };
 
   return (
@@ -112,18 +115,15 @@ const Login = () => {
       {user ? (
         <Navigate to="/home" />
       ) : (
-      <Card className="bg-yellow-400  flowbite-card max-w-md item-center">
-      <h5 className="mb-3 text-base font-semibold text-gray-900 dark:text-white lg:text-xl">{user}</h5>
+      <Card className="item-center  login-card">
+      <img src={Logo} className="main-logo" alt="Logo" />
       <p className="text-sm font-normal text-gray-500 dark:text-gray-400">
         Connect with one of our available wallet providers or create a new one.
       </p>
       <ul className="my-4 space-y-3">
-      <Button outline gradientDuoTone="cyanToBlue" onClick={ async () => {
+        <li onClick={ async () => {
         await handleLogin();
       }}>
-        Authenticate via MetaMask
-      </Button>
-        <li>
           <a
             href="#"
             className="group flex items-center rounded-lg bg-gray-50 p-3 text-base font-bold text-gray-900 hover:bg-gray-100 hover:shadow dark:bg-gray-600 dark:text-white dark:hover:bg-gray-500"
@@ -319,7 +319,7 @@ const Login = () => {
             <span className="ml-3 flex-1 whitespace-nowrap">WalletConnect</span>
           </a>
         </li>
-        <li>
+        {/* <li>
           <a
             href="#"
             className="group flex items-center rounded-lg bg-gray-50 p-3 text-base font-bold text-gray-900 hover:bg-gray-100 hover:shadow dark:bg-gray-600 dark:text-white dark:hover:bg-gray-500"
@@ -336,12 +336,12 @@ const Login = () => {
             </svg>
             <span className="ml-3 flex-1 whitespace-nowrap">Fortmatic</span>
           </a>
-        </li>
+        </li> */}
       </ul>
       <div>
         <a
           href="#"
-          className="inline-flex items-center text-xs font-normal text-gray-500 hover:underline dark:text-gray-400"
+          className="inline-flex text-center items-center text-xs font-normal text-gray-500 hover:underline dark:text-gray-400"
         >
           <svg
             className="mr-2 h-3 w-3"

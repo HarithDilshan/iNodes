@@ -41,14 +41,11 @@ import {
 import { useAuth } from './AuthContext';
 
 const AuthLayout = ({ redirectPath = '/login' }) => {
-  
+  const { isAuthenticated } = useAuth();
 
-  
-  const { isLoggedIn } = useAuth();
-
-  console.log('isLoggedIn',isLoggedIn);
-  if (!isLoggedIn) {
-    return <Navigate to={redirectPath} replace />;
+  console.log('isAuthenticated', isAuthenticated);
+  if (!isAuthenticated) {
+    return <Navigate to={redirectPath} />;
   }
 
   return <Outlet />;
