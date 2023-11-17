@@ -18,41 +18,42 @@ def get_token_balance(address):
         api_key=api_key,
         params=params,
     )
-
+   
     return result
 
 
-def authenticate_challenge(chain, address):
-    body = {
-        "domain": "my.dapp",
-        "chainId": chain,
-        "address": address,
-        "statement": "Please Confirm Login",
-        "uri": "https://my.dapp/",
-        "expirationTIme": "2023-02-28T00:00:00.000Z",
-        "notBefore": "2021-02-28T00:00:00.000Z",
-        "resources": ["https://docs.moralis.io"],
-        "timeout": 30,
-    }
+# def authenticate_challenge(chain, address):
+#     print(address)
+#     body = {
+#         "domain": "my.dapp",
+#         "chainId": chain,
+#         "address": address,
+#         "statement": "Please Confirm Login",
+#         "uri": "https://my.dapp/",
+#         "expirationTIme": "2023-02-28T00:00:00.000Z",
+#         "notBefore": "2021-02-28T00:00:00.000Z",
+#         "resources": ["https://docs.moralis.io"],
+#         "timeout": 30,
+#     }
 
-    result = auth.challenge.request_challenge_evm(
-        api_key=api_key,
-        body=body,
-    )
+#     result = auth.challenge.request_challenge_evm(
+#         api_key=api_key,
+#         body=body,
+#     )
+#     print('harith' + result)
+#     return result
 
-    return result
 
+# def verify_challenge(message, signature):
+#     body = {
+#         "message": message,
+#         "signature": signature,
+#     }
 
-def verify_challenge(message, signature):
-    body = {
-        "message": message,
-        "signature": signature,
-    }
+#     result = auth.challenge.verify_challenge_evm(
+#         api_key=api_key,
+#         body=body,
+#     )
 
-    result = auth.challenge.verify_challenge_evm(
-        api_key=api_key,
-        body=body,
-    )
-
-    return result
+#     return result
 
